@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Rotten onions{% endblock %}
+
+{% block content %}
+<div class="container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Rank</th>
+          <th scope="col">Title</th>
+          <th scope="col">Year</th>
+          <th scope="col">Rating</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for item in movies %}
+        <tr>
+          <th scope="row">
+              {{ item.rank }}
+          </th>
+          <td>
+              <a href="/movie/{{ item.year }}/{{ item.title }}">{{ item.title }}</a>
+          </td>
+          <td>{{ item.year }}</td>
+          <td>{{ item.rating }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+</div>
+
+{% endblock %}

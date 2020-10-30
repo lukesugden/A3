@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block title %}{{movie.title}} - {{movie.year}}{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row border-bottom mb-4">
+        <div class="col">
+            <h1>{{ movie.title }}</h1>
+        </div>
+    </div>
+    <div class="row mb-4">
+        <div class="col">
+            {{ movie.description }}
+        </div>
+    </div>
+
+    <div class="row mt-2 py-1 px-4 bg-primary text-light border-top">
+        <h4>Movie Info</h4>
+    </div>
+
+    <div class="row mt-2">
+
+        <div class="col">
+            <table class="table">
+                <tbody>
+                <tr>
+                    <th scope="row">Title</th>
+                    <td>{{ movie.title }}</td>
+                </tr>
+
+                <tr>
+                    <th scope="row">Genre</th>
+                    <td>
+                    {% for item in movie.genre %}
+                        <div>{{ item }}</div>
+                    {% endfor %}
+                    </td>
+                </tr>
+
+                <tr>
+                    <th scope="row">Actors</th>
+                    <td>
+                    {% for item in movie.actors %}
+                        <div>{{ item }}</div>
+                    {% endfor %}
+                </tr>
+
+                <tr>
+                    <th scope="row">Year</th>
+                    <td>{{ movie.year }}</td>
+                </tr>
+
+                <tr>
+                    <th scope="row">Runtime</th>
+                    <td>{{ movie.runtime }} Minutes</td>
+                </tr>
+
+                <tr>
+                    <th scope="row">Revenue</th>
+                    <td>{{ movie.revenue }}</td>
+                </tr>
+
+                <tr>
+                    <th scope="row">Rating</th>
+                    <td>{{ movie.rating }}</td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
